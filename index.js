@@ -11,8 +11,9 @@ function setup() {
 
 function draw() {
 	background(220);
-	textSize(100);
-	text('HAPPY NEW YEAR!!',0 , windowHeight/ 2);
+	textSize(50);
+	fill(30);
+	text('HAPPY NEW YEAR!' ,5 , windowHeight/ 2);	
 	for(let firework of fireworks) {
 		firework.draw();
 		firework.move();  
@@ -24,16 +25,17 @@ function draw() {
 class Firework {
 	    
 	  constructor() {
-		      this.x = random(0,windowWidth);
-		      this.startY = random(windowHeight + 100, windowHeight + 1000);
-		      this.y = this.startY; 
-		      this.speed = random(1,3);
-		      this.blowHeight = random(0, 400);
-		  	this.color = color(random(0,255), random(0,255), random(0,255));
+		  this.x = random(0,windowWidth);
+		  this.startY = random(windowHeight + 100, windowHeight + 1000);
+		  this.y = this.startY; 
+		  this.speed = random(1,3);
+		  this.blowHeight = random(0, 400);
+		  this.color = color(random(0,255), random(0,255), random(0,255));
+	 	this.size = random(10,50);
 	  }
 	  
 	  draw() {
-		  	ellipse(this.x, this.y, 10, 10);
+		  	ellipse(this.x, this.y, this.size, this.size);
 		  	fill(this.color);
 		    }
 	  
@@ -44,7 +46,6 @@ class Firework {
 			if(this.y != this.startY) {
 				let explosion = new Explosion(this.x,this.y);
 				explosion.draw();
-				explosion.grow();
 			} else {
 				explosion.remove();
 			}
