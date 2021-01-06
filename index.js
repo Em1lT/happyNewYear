@@ -33,19 +33,18 @@ function draw() {
 
 
 class Firework {
-
 	constructor() {
 		this.x = random(0,windowWidth);
 		this.startY = random(windowHeight + 100, windowHeight + 1000);
 		this.y = this.startY; 
 		this.speed = random(1,3);
 		this.blowHeight = random(0, 400);
-		this.color = color(random(0,255), random(0,255), random(0,255));
-		this.size = random(10,50);
+		this.color = color(random(100,255), random(0,255), random(0,255));
+		this.size = random(5,20);
 	}
 
 	draw() {
-		ellipse(this.x, this.y, this.size, this.size);
+		rect(this.x, this.y, this.size, this.size * 3, 10);
 		fill(this.color);
 	}
 
